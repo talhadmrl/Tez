@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: radial-gradient(circle at top, #eef2ff, #fdf2f8 45%, #f9fafb);
+    color: #111827;
+}
+
+.app {
+    min-height: 100vh;
+    padding: 24px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+header h1 {
+    font-size: 34px;
+    margin: 0 0 8px;
+}
+
+header p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 24px;
+    align-items: start;
+}
+
+.side-panel,
+.center-panel {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 26px;
+    padding: 20px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+.side-panel {
+    height: calc(100vh - 135px);
+    overflow-y: auto;
+}
+
+.similar-panel {
+    border: 1px solid #bfdbfe;
+}
+
+.outfit-panel {
+    border: 1px solid #fbcfe8;
+}
+
+.side-panel h2 {
+    margin-top: 0;
+    font-size: 21px;
+    position: sticky;
+    top: 0;
+    background: white;
+    padding-bottom: 12px;
+    z-index: 2;
+}
+
+.similar-panel h2 {
+    color: #1d4ed8;
+}
+
+.outfit-panel h2 {
+    color: #be185d;
+}
+
+.center-panel {
+    min-height: calc(100vh - 135px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+}
+
+.upload-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 28px;
+    border-radius: 28px;
+    border: 2px dashed #818cf8;
+    background: linear-gradient(135deg, #ffffff, #eef2ff);
+    text-align: center;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.upload-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 35px rgba(79, 70, 229, 0.18);
+}
+
+.upload-icon {
+    display: inline-flex;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #9333ea);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.upload-title {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.upload-text {
+    display: block;
+    color: #6b7280;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.preview-card {
+    display: none;
+    width: 100%;
+    max-width: 430px;
+    background: #fff;
+    border-radius: 28px;
+    padding: 18px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+#previewImage {
+    width: 100%;
+    max-height: 430px;
+    object-fit: contain;
+    border-radius: 22px;
+    background: #f9fafb;
+}
+
+.button-group {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+    border: none;
+    padding: 13px 20px;
+    border-radius: 999px;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.search-btn {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+}
+
+.outfit-btn {
+    background: linear-gradient(135deg, #db2777, #9333ea);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+.vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 18px;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 12px;
+    align-items: center;
+    transition: 0.25s ease;
+}
+
+#searchResults .product-card {
+    border: 1px solid #bfdbfe;
+}
+
+#outfitResults .product-card {
+    border: 1px solid #fbcfe8;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+}
+
+.product-card img {
+    width: 78px;
+    height: 96px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f9fafb;
+    padding: 4px;
+}
+
+.product-card h3 {
+    font-size: 13px;
+    margin: 0 0 6px;
+    line-height: 1.25;
+}
+
+.product-card p {
+    font-size: 12px;
+    margin: 3px 0;
+    color: #4b5563;
+}
+
+.score {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 8px;
+    border-radius: 999px;
+    background: #dcfce7;
+    color: #15803d !important;
+    font-weight: 700;
+}
+
+@media (max-width: 950px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .side-panel,
+    .center-panel {
+        height: auto;
+        min-height: auto;
+    }
+}

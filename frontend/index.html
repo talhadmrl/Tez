@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Moda Ürünleri Görsel Arama Sistemi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+    <header>
+        <h1>Moda Ürünleri Görsel Arama</h1>
+        <p>Ürün görseli yükleyin, benzer ürünleri ve kombin önerilerini görüntüleyin.</p>
+    </header>
+
+    <main class="layout">
+        <section class="side-panel similar-panel">
+            <h2>Benzer Ürünler</h2>
+            <div id="searchResults" class="vertical-list"></div>
+        </section>
+
+        <section class="center-panel">
+            <label for="imageInput" class="upload-card">
+                <span class="upload-icon">＋</span>
+                <span class="upload-title">Görsel Seç</span>
+                <span class="upload-text">JPG veya PNG ürün fotoğrafı yükleyin</span>
+            </label>
+
+            <input type="file" id="imageInput" accept="image/*" hidden>
+
+            <div id="previewArea" class="preview-card">
+                <img id="previewImage" src="" alt="Yüklenen Görsel">
+            </div>
+
+            <div class="button-group">
+                <button class="search-btn" onclick="searchProducts()">Benzer Ürünleri Ara</button>
+                <button class="outfit-btn" onclick="recommendOutfit()">Kombin Öner</button>
+            </div>
+        </section>
+
+        <section class="side-panel outfit-panel">
+            <h2>Kombin Önerileri</h2>
+            <div id="outfitResults" class="vertical-list"></div>
+        </section>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
