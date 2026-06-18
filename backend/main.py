@@ -31,17 +31,17 @@ UPLOAD_DIR = "backend/uploads"
 
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-# 1. Verileri Yükle
+
 products_df = pd.read_csv(PRODUCTS_CSV)
 embeddings = np.load(EMBEDDINGS_FILE)
 product_ids = np.load(IDS_FILE).astype(int)
 
-# 2. DataFrame'i hızlı ve güvenli arama için ID'ye göre indeksle ve Sözlüğe çevir
+
 products_df["id"] = products_df["id"].astype(int)
-# Bu işlem veri sırasının bozulmasını engeller ve eşleşmeyi garantiye alır
+
 products_dict = products_df.set_index("id").to_dict(orient="index")
 
-# Model Yükleme
+
 model = resnet50(weights=ResNet50_Weights.DEFAULT)
 model.fc = torch.nn.Identity() 
 model.eval()
@@ -275,7 +275,7 @@ async def recommend_outfit(file: UploadFile = File(...)):
             if product_info["gender"] not in [selected_product_gender, "Unisex"]:
                 continue
 
-        # 2. Tamamlayıcı kategori filtresi
+        # 2. Kategori filtresi
         if product_category not in target_categories:
             continue
 
