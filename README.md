@@ -82,7 +82,8 @@ fashion/
 │     ├── prepare_dataset.py
 │     ├── extract_embeddings.py
 │     └── evaluate_topk.py
-│
+      └── search_similar.py
+      └── test.py      
 └── README.md
 ```
 
